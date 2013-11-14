@@ -1,0 +1,47 @@
+%h2 価格表
+%table.table.table-striped.table-bordered.table-hover
+  %thead
+    %tr
+      %th
+        品目
+      %th
+        初期価格
+      %th
+        設定最高額
+
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td
+          = item.name
+        %td
+          = item.price
+        %td
+          = item.max_price
+
+%h2 個数により価格表
+%table.table.table-striped.table-bordered.table-hover
+  %thead
+    %tr
+      %th{ rowspan: 2}
+        品目
+      - 1.upto(10) do |i|
+        %th{ colspan: 2 }
+          = i
+    %tr
+      - 1.upto(10) do |i|
+        %th
+          初
+        %th
+          最
+
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td
+          = item.name
+        - 1.upto(10) do |i|
+          %td
+            = (item.price * i).floor
+          %td
+            = (item.max_price * i).floor
