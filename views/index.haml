@@ -1,7 +1,7 @@
 %h2 価格表
 %table.table.table-striped.table-bordered.table-hover
   %thead
-    %tr
+    %tr.success
       %th
         品目
       %th
@@ -22,13 +22,13 @@
 %h2 個数により価格表
 %table.table.table-striped.table-bordered.table-hover
   %thead
-    %tr
+    %tr.success
       %th{ rowspan: 2}
         品目
       - 1.upto(10) do |i|
         %th{ colspan: 2 }
           = i
-    %tr
+    %tr.success
       - 1.upto(10) do |i|
         %th
           初
@@ -41,7 +41,14 @@
         %td
           = item.name
         - 1.upto(10) do |i|
-          %td
-            = (item.price * i).floor
-          %td
-            = (item.max_price * i).floor
+          - if i % 2 == 0
+            %td.warning
+              = (item.price * i).floor
+            %td.warning
+              = (item.max_price * i).floor
+          - else
+            %td
+              = (item.price * i).floor
+            %td
+              = (item.max_price * i).floor
+
