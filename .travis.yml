@@ -3,3 +3,10 @@ ruby:
 - 1.9.2
 - 2.0.0
 script: bundle exec rake test
+deploy:
+  provider: heroku
+  api_key:
+    secure: aTaLJfcCNyFAaJIdM11UVX2aXQhEPDD3ZG60rSqzUHy38bMfGkwyOXgnkaTIE2neIiXQa98UhpjSmzZVIJtpcjOdspyjBieZWdTdUVKxWZ6uynfEh/UdzM/mLnZw08sKr+Ph9mjsROjl6Hh/+2nEynI4udZPXmDCNnIvCaNuWe8=
+  app: hayday-data
+  on:
+    repo: soramugi/hayday-data
