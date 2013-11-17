@@ -1,25 +1,6 @@
-%h2 価格表
-%table.table.table-striped.table-bordered.table-hover
-  %thead
-    %tr.success
-      %th
-        品目
-      %th
-        初期価格
-      %th
-        設定最高額
-
-  %tbody
-    - @items.each do |item|
-      %tr
-        %td
-          = item.name
-        %td
-          = item.price
-        %td
-          = item.max_price
-
-%h2 個数により価格表
+%h2 個数による価格表
+%p 初:初期価格
+%p 最:最高額
 %table.table.table-striped.table-bordered.table-hover
   %thead
     %tr.success
@@ -52,3 +33,6 @@
             %td
               = (item.max_price * i).floor
 
+%p
+  更新日時:
+  = @date
